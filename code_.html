@@ -1,0 +1,36 @@
+<script>
+
+$(document).ready(()=>{
+setTimeout(()=>{
+$("#main-content > div > div.header.clearfix > div > div > div.col-md-4.col-sm-4.col-xs-5 > div > ul > li:nth-child(1) > a").attr("href", "/contents/process_content/puzzle_app").attr("target", "_blank")
+$("#main-content > div > div.header.clearfix > div > div > div.col-md-4.col-sm-4.col-xs-5 > div > ul > li:nth-child(1) > a > span > span").innerHTML = "إلى برنامج الحجز"
+$("#main-content > div > div.header.clearfix > div > div > div.col-md-4.col-sm-4.col-xs-5 > div > ul > li:nth-child(1)").css({background: "#44a52a"})
+
+},500)
+
+
+if(location.pathname.includes("entity/le_workflow-type-entity-2/5/edit")){
+const preFix = $("#le_workflow-type-entity-2_custom_data-pre")
+const prefixKey = preFix.value
+const startingPoint = $("#le_workflow-type-entity-2_custom_data-start_from")
+const currSerial = $("#le_workflow-type-entity-2_custom_data-current_serial")
+console.log(currSerial)
+currSerial.addClass("disabled")
+}else if(location.pathname.includes("owner/reports/new_taxes")){
+document.querySelector("#main-content > div.layout-container > div.main-area.clearfix > div > ol > div:nth-child(11) > table > thead > tr:nth-child(1) > th.first-column.no-sort").innerHTML = "قيود يومية"
+
+const t = (+document.querySelector("#main-content > div.layout-container > div.main-area.clearfix > div > ol > div:nth-child(11) > table > tbody > tr > td:nth-child(2)").innerHTML.split("&")[0].replaceAll(",", "").slice(1) /.15).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+
+document.querySelector("#main-content > div.layout-container > div.main-area.clearfix > div > ol > div:nth-child(11) > table > thead > tr:nth-child(2) > th:first-child").insertAdjacentHTML( 'afterend', "<td  class='font-weight-bold'>إجمالي القيود</td>")
+document.querySelector("#main-content > div.layout-container > div.main-area.clearfix > div > ol > div:nth-child(11) > table > tbody > tr > td:first-child").insertAdjacentHTML( 'afterend', `<td class='font-weight-bold'>${t}</td>`)
+document.querySelector("#main-content > div.layout-container > div.main-area.clearfix > div > ol > div:nth-child(11) > table > thead > tr:nth-child(2) > th:nth-child(3)").style.textAlign = "end"
+document.querySelector("#main-content > div.layout-container > div.main-area.clearfix > div > ol > div:nth-child(11) > table > thead > tr:nth-child(2) > th:nth-child(3)").innerText = "الضريبة المدفوعة"
+document.querySelector("#main-content > div.layout-container > div.main-area.clearfix > div > ol > div:nth-child(11) > table > tbody > tr > td:nth-child(3)").style.textAlign = "end"
+}else if(location.pathname.includes("owner/reports/taxes")){
+
+const allJournalsEnitrisIDs = $("#main-content > div.layout-container > div.main-area.clearfix > div > ol > div.report > table > tbody")
+
+}
+})
+</script>
+
